@@ -1,15 +1,16 @@
 (add-to-list 'load-path (expand-file-name "~/.emacs.d"))
 
+
 (require 'init-packages)
 (require 'init-jump)
+(require 'init-ruby)
+(require 'init-javascript)
 
 (defun turn-on-paredit () (paredit-mode 1))
 (add-hook 'clojure-mode-hook 'turn-on-paredit)
 
 (setq inferior-lisp-program "/usr/local/bin/clisp")
 (require 'rainbow-delimiters)
-
-(setq coffee-command "/usr/local/bin/coffee")
 
 (remove-hook 'text-mode-hook 'turn-on-flyspell)
 (remove-hook 'text-mode-hook 'turn-on-auto-fill)
@@ -55,37 +56,10 @@
 ;; show the menu bar
 (menu-bar-mode)
 
-;;;; Ruby
-;; (add-hook 'ruby-mode-hook 'flymake-ruby-load)
-(require 'rspec-mode)
-
-;; TODO - why is the default rspec-mode-verifible-keymap instead of
-;; rspec-mode-keymap ?
-;; https://github.com/pezra/rspec-mode/blob/master/rspec-mode.el#L470
-(add-hook 'ruby-mode-hook
-          (lambda () (local-set-key rspec-key-command-prefix rspec-mode-keymap))
-          'rspec-mode)
-
-;; 1.9 syntax checking
-;; (add-to-list 'load-path "~/.emacs.d/el-get/Enhanced-Ruby-Mode")
-;; (require 'ruby-mode)
-
-;; ;;;; JavaScript
-;; (autoload 'js2-mode "js2-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.js$" . js3-mode))
-(require 'js3-mode)
-
 (require 'stylus-mode)
 
 ;; For Emacs 23 or Aquamacs, use this to open files in the existing frame:
 (setq ns-pop-up-frames nil)
-
-;;;; CoffeeScript
-(defun coffee-custom ()
-  "coffee-mode-hook"
-  (set (make-local-variable 'tab-width) 2))
-(add-hook 'coffee-mode-hook
-          '(lambda () (coffee-custom)))
 
 
 ;;;; SCSS
@@ -143,6 +117,9 @@ Equivalent to \\[set-mark-command] when \\[transient-mark-mode] is disabled"
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector [default bold shadow italic underline bold bold-italic bold])
+ '(ansi-color-names-vector (vector "#eaeaea" "#d54e53" "#b9ca4a" "#e7c547" "#7aa6da" "#c397d8" "#70c0b1" "#000000"))
+ '(custom-safe-themes (quote ("bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "82d2cac368ccdec2fcc7573f24c3f79654b78bf133096f9b40c20d97ec1d8016" "4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" "4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" default)))
  '(exec-path (quote ("/usr/bin" "/bin" "/usr/sbin" "/sbin" "/Applications/Emacs.app/Contents/MacOS/bin" "/usr/local/bin")))
  '(js2-always-indent-assigned-expr-in-decls-p t)
  '(js2-auto-indent-p t)
