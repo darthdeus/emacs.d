@@ -1,0 +1,14 @@
+auto-save-list/
+backups/
+el-get/
+elpa/
+eshell/
+swank/
+tutorial/
+url/
+var/
+vendor/
+
+.smex-items
+places
+tramp
