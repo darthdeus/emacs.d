@@ -20,9 +20,9 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(require-package 'starter-kit)
-(require-package 'starter-kit-lisp)
-(require-package 'starter-bindings)
+(require 'starter-kit)
+(require 'starter-kit-lisp)
+(require 'starter-kit-bindings)
 
 
 (defvar my-packages '(starter-kit starter-kit-lisp starter-kit-bindings)
@@ -31,3 +31,5 @@
 (dolist (p my-packages)
   (when (not (package-installed-p p))
     (package-install p)))
+
+(provide 'init-packages)

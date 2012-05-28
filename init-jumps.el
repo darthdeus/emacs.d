@@ -148,3 +148,5 @@ If `smart-use-extended-syntax' is t then that symbol is returned instead."
 
 (global-set-key (kbd "M-n") 'smart-symbol-go-forward)
 (global-set-key (kbd "M-p") 'smart-symbol-go-backward)
+
+(provide 'init-jumps)

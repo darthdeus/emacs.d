@@ -4,12 +4,17 @@
 (require 'js3-mode)
 
 
+(add-to-list 'auto-mode-alist '("\\.handlebars$" . html-mode))
+
 ;;;; CoffeeScript
 
 (setq coffee-command "/usr/local/bin/coffee")
+
 
 (defun coffee-custom ()
   "coffee-mode-hook"
   (set (make-local-variable 'tab-width) 2))
 (add-hook 'coffee-mode-hook
           '(lambda () (coffee-custom)))
+
+(provide 'init-javascript)
