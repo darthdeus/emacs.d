@@ -5,6 +5,8 @@
 (require 'init-ruby)
 (require 'init-javascript)
 
+(delete-selection-mode 1)
+
 (defun turn-on-paredit () (paredit-mode 1))
 (add-hook 'clojure-mode-hook 'turn-on-paredit)
 
@@ -42,6 +44,9 @@
 ;; (require 'js2-rename-var)
 ;; (define-key js2-mode-map (kbd "C-c C-r") 'js2-rename-var)
 
+(add-to-list 'load-path "~/.emacs.d/vendor/vim-mode")
+(require 'vim)
+(vim-mode 0)
 
 ;;;; PeepOpen
 (require 'textmate)
@@ -90,10 +95,7 @@ Equivalent to \\[set-mark-command] when \\[transient-mark-mode] is disabled"
              (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
 
 
-;;;; yasnippet
-(require 'yasnippet)
-(setq yas/snippet-dirs '("~/.emacs.d/el-get/yasnippet/snippets" "~/.emacs.d/el-get/yasnippet/extras/imported"))
-(yas/global-mode 1)
+(require 'init-yasnippet)
 
 
 ;;(color-theme-tomorrow-night)
@@ -122,6 +124,8 @@ Equivalent to \\[set-mark-command] when \\[transient-mark-mode] is disabled"
  '(custom-enabled-themes (quote (sanityinc-tomorrow-night)))
  '(custom-safe-themes (quote ("628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" "bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "82d2cac368ccdec2fcc7573f24c3f79654b78bf133096f9b40c20d97ec1d8016" "4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" "4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" default)))
  '(exec-path (quote ("/usr/bin" "/bin" "/usr/sbin" "/sbin" "/Applications/Emacs.app/Contents/MacOS/bin" "/usr/local/bin")))
+ '(icicle-files-ido-like-flag t)
+ '(js-indent-level 2)
  '(js2-always-indent-assigned-expr-in-decls-p t)
  '(js2-auto-indent-p t)
  '(js2-basic-offset 2)
