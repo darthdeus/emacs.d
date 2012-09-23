@@ -5,6 +5,7 @@
 
 
 (add-to-list 'auto-mode-alist '("\\.handlebars$" . html-mode))
+(add-to-list 'auto-mode-alist '("\\.hbs$" . html-mode))
 
 ;;;; CoffeeScript
 
