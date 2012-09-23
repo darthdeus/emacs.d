@@ -1,4 +1,7 @@
 
+(global-set-key (kbd "<M-right>") 'forward-word)
+(global-set-key (kbd "<M-left>") 'backward-word)
+
 (defun jump-to-mark ()
   "Jumps to the local mark, respecting the `mark-ring' order.
 This is the same as using \\[set-mark-command] with the prefix argument."
