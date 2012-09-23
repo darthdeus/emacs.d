@@ -135,7 +135,7 @@ Equivalent to \\[set-mark-command] when \\[transient-mark-mode] is disabled"
  '(js2-cleanup-whitespace t)
  '(js2-indent-on-enter-key t)
  '(rspec-use-rake-flag nil)
- '(rspec-use-rvm nil)
+ '(rspec-use-rvm t)
  '(scss-compile-at-save nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
