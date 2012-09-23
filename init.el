@@ -7,6 +7,9 @@
 
 (delete-selection-mode 1)
 
+;; disable visual bell
+(setq ring-bell-function (lambda () (message "*beep*")))
+
 (defun turn-on-paredit () (paredit-mode 1))
 (add-hook 'clojure-mode-hook 'turn-on-paredit)
 
